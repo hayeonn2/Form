@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {useForm} from "react-hook-form";
 import {useFormState} from "react-dom";
@@ -10,27 +10,6 @@ export default function Home() {
     const [actionState, formAction] = useFormState(textFormAction, {message: ""});
     const [text, setText] = useState("");
 
-    const [books, setBooks] = useState([]);
-
-
-    useEffect(() => {
-        async function fetchBooks() {
-            try {
-                const response = await fetch("/api/user/join");
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                const data = await response.json();
-                setBooks(data.books);
-            } catch (error) {
-                console.error("Failed to fetch books:", error);
-            }
-        }
-        fetchBooks();
-    }, []);
-
-
-    console.log(books, "zz")
 
     const form = useForm({
         mode: "onChange"

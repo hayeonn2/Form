@@ -1,4 +1,4 @@
-import mongoose, {connect} from "mongoose";
+import _mongoose, {connect} from "mongoose";
 
 // 데이터베이스 연결을 위한 URI
 const DATABASE_URI = process.env.DATABASE_URI;
@@ -55,3 +55,4 @@ async function DBConnect(){
 }
 
 export default DBConnect;
+
