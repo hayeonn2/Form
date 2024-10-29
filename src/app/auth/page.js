@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <div
       className={
-        "bg-white w-[500px] mx-auto my-[200px] rounded-[12px] p-[20px]"
+        "bg-[rgba(255,255,255,0.2)] w-[500px] mx-auto my-[200px] rounded-[12px] p-[20px] border"
       }
     >
       <p className={"text-black font-bold text-[24px]"}>Form</p>
@@ -80,7 +80,12 @@ export default function Home() {
         {/*    })} />*/}
         {/*</div>*/}
 
-        <button className={"p-[5px] bg-sky-800 rounded-[4px]"} type={"submit"}>
+        <button
+          className={
+            "bg-transparent border-[rgba(255,255,255,0.6)] border w-full block px-[10px] py-[12px] text-blue-400 text-center font-semibold"
+          }
+          type={"submit"}
+        >
           등록하기
         </button>
       </form>
