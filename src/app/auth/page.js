@@ -22,8 +22,9 @@ export default function Home() {
   }
 
   useEffect(() => {
-    if (actionState?.message) return console.log(actionState.message);
-    if (actionState?.success) router.back();
+    if (actionState.message && !actionState.success)
+      return console.error(actionState.message);
+    if (actionState.success) router.back();
   }, [actionState]);
 
   return (

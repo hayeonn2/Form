@@ -23,17 +23,17 @@ export async function signUpFormAction({ success, message }, formData) {
 
     const data = await response.json();
 
-    console.log(data.code, "data!!!");
+    console.log(data, "data!!!");
 
     // 데이터베이스에서 200, 500 code 를 받아와서 처리
     if (data.code != 200) {
       console.log("로그인 실패: ", data.data);
-      return { success: false, msg: data?.message };
+      return { success: false, message: data?.message };
     }
 
-    return { success: true, msg: "success" };
+    return { success: true, message: data.message };
   } catch (e) {
     console.error("에러 발생:", e);
-    return { message: "알 수 없는 에러 발생" };
+    return { success: false, message: "error" };
   }
 }
