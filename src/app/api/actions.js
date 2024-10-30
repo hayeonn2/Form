@@ -1,6 +1,6 @@
 "use server";
 
-export async function signUpFormAction(message, formData) {
+export async function signUpFormAction({ success, message }, formData) {
   try {
     console.log(formData, "폼?ㅎㅎ");
 
@@ -23,9 +23,15 @@ export async function signUpFormAction(message, formData) {
 
     const data = await response.json();
 
-    console.log(data, "data?");
+    console.log(data.code, "data!!!");
 
-    return { message: "성공적으로 처리되었습니다." };
+    // 데이터베이스에서 200, 500 code 를 받아와서 처리
+    if (data.code != 200) {
+      console.log("로그인 실패: ", data.data);
+      return { success: false, msg: data?.message };
+    }
+
+    return { success: true, msg: "success" };
   } catch (e) {
     console.error("에러 발생:", e);
     return { message: "알 수 없는 에러 발생" };

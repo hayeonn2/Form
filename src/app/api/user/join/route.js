@@ -21,13 +21,10 @@ export const POST = async (request) => {
     await userInfo.save();
 
     // JSON 형식으로 응답하기
-    return NextResponse.json({ message: "성공!" }); // 수정된 부분
+    return NextResponse.json({ code: 200 }); // 수정된 부분
   } catch (error) {
     console.error(error);
-    return NextResponse.json(
-      { error: "데이터베이스 연결 실패" },
-      { status: 500 }
-    ); // 수정된 부분
+    return NextResponse.json({ code: 500 }); // 수정된 부분
   }
 };
 

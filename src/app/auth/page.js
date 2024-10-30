@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 import { useFormState } from "react-dom";
 import { useEffect, useState } from "react";
 import { signUpFormAction } from "@/app/api/actions";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   const [actionState, formAction] = useFormState(signUpFormAction, {
     message: "",
   });
@@ -21,6 +23,7 @@ export default function Home() {
 
   useEffect(() => {
     if (actionState?.message) return console.log(actionState.message);
+    if (actionState?.success) router.back();
   }, [actionState]);
 
   return (
@@ -74,7 +77,7 @@ export default function Home() {
             className={"py-[10px] px-[12px] border border-white rounded-[4px]"}
           >
             <input
-              placeholder={"비밀번호를 입력해주세요."}
+              placeholder={"비밀번호"}
               className={
                 "rounded-[4px] bg-transparent w-full focus:outline-none placeholder:text-[14px]"
               }
