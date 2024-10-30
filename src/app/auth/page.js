@@ -3,20 +3,20 @@
 import { useForm } from "react-hook-form";
 import { useFormState } from "react-dom";
 import { useEffect, useState } from "react";
-import { textFormAction } from "@/app/api/actions";
+import { signUpFormAction } from "@/app/api/actions";
 
 export default function Home() {
-  const [actionState, formAction] = useFormState(textFormAction, {
+  const [actionState, formAction] = useFormState(signUpFormAction, {
     message: "",
   });
-  const [text, setText] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   const form = useForm({
     mode: "onChange",
   });
 
   function handleInputChange(e) {
-    setText(e.target.value);
+    setInputValue(e.target.value);
   }
 
   useEffect(() => {

@@ -8,37 +8,20 @@ export const POST = async (request) => {
   try {
     await DBConnect(); // DBConnect 호출 추가
 
-    const reqBody = await request.json();
-    const { userId, userPw, name } = reqBody;
+    const data = await request.json();
+    const userPassword = data.userPw;
+    const hashPassword = await bcrypt.hash(userPassword, 10);
 
-    const newUser = new UserModel({
-      userId,
-      userPw,
-      name,
+    const userInfo = new UserModel({
+      userId: data.userId,
+      userPw: hashPassword,
+      name: data.name,
     });
 
-    const savedUser = await newUser.save();
+    await userInfo.save();
 
-    return NextResponse.json({
-      message: "User created successfully",
-      success: true,
-      savedUser,
-    });
-
-    // const data = await request.json();
-    // const userPassword = data.userPw;
-    // const hashPassword = await bcrypt.hash(userPassword, 10);
-    //
-    // const userInfo = new UserModel({
-    //     userId: data.userId,
-    //     userPw: hashPassword,
-    //     name: data.name,
-    // });
-    //
-    // await userInfo.save();
-    //
-    // // JSON 형식으로 응답하기
-    // return NextResponse.json({ message: "성공!" }); // 수정된 부분
+    // JSON 형식으로 응답하기
+    return NextResponse.json({ message: "성공!" }); // 수정된 부분
   } catch (error) {
     console.error(error);
     return NextResponse.json(
@@ -47,3 +30,20 @@ export const POST = async (request) => {
     ); // 수정된 부분
   }
 };
+
+// const reqBody = await request.json();
+// const { userId, userPw, name } = reqBody;
+//
+// const newUser = new UserModel({
+//   userId,
+//   userPw,
+//   name,
+// });
+//
+// const savedUser = await newUser.save();
+//
+// return NextResponse.json({
+//   message: "User created successfully",
+//   success: true,
+//   savedUser,
+// });
