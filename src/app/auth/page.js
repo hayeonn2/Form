@@ -29,60 +29,83 @@ export default function Home() {
         "bg-[rgba(255,255,255,0.2)] w-[500px] mx-auto my-[200px] rounded-[12px] p-[20px] border"
       }
     >
-      <p className={"text-black font-bold text-[24px]"}>Form</p>
-      <form action={formAction} className={"flex flex-col gap-[12px]"}>
-        <div>
-          <p className={"text-black"}>이름</p>
-          <input
-            className={"text-black border border-[#e0e0e0] rounded-[4px]"}
-            type={"text"}
-            {...form.register("name", {
-              onChange: (e) => handleInputChange(e),
-            })}
-          />
-        </div>
+      <p className={"font-bold text-[24px]"}>Sign Up</p>
 
-        {/*<div>*/}
-        {/*    <p className={"text-black"}>휴대폰</p>*/}
-        {/*    <input className={"text-black border border-[#e0e0e0] rounded-[4px]"}*/}
-        {/*           type={"text"} {...form.register("userPhone", {*/}
-        {/*        onChange: (e) => handleInputChange(e)*/}
-        {/*    })} />*/}
-        {/*</div>*/}
+      <form
+        action={formAction}
+        className={"flex flex-col gap-[12px] mt-[12px]"}
+      >
+        <label>
+          <div
+            className={"py-[10px] px-[12px] border border-white rounded-[4px]"}
+          >
+            <input
+              placeholder={"이름"}
+              className={
+                "rounded-[4px] bg-transparent w-full focus:outline-none placeholder:text-[14px]"
+              }
+              type={"text"}
+              {...form.register("name", {
+                onChange: (e) => handleInputChange(e),
+              })}
+            />
+          </div>
+        </label>
 
-        <div>
-          <p className={"text-black"}>아이디</p>
-          <input
-            className={"text-black border border-[#e0e0e0] rounded-[4px]"}
-            type={"text"}
-            {...form.register("userId", {
-              onChange: (e) => handleInputChange(e),
-            })}
-          />
-        </div>
+        <label>
+          <div
+            className={"py-[10px] px-[12px] border border-white rounded-[4px]"}
+          >
+            <input
+              placeholder={"아이디"}
+              className={
+                "rounded-[4px] bg-transparent w-full focus:outline-none placeholder:text-[14px]"
+              }
+              type={"text"}
+              {...form.register("userId", {
+                onChange: (e) => handleInputChange(e),
+              })}
+            />
+          </div>
+        </label>
 
-        <div>
-          <p className={"text-black"}>비밀번호</p>
-          <input
-            className={"text-black border border-[#e0e0e0] rounded-[4px]"}
-            type={"text"}
-            {...form.register("userPw", {
-              onChange: (e) => handleInputChange(e),
-            })}
-          />
-        </div>
+        <label>
+          <div
+            className={"py-[10px] px-[12px] border border-white rounded-[4px]"}
+          >
+            <input
+              placeholder={"비밀번호를 입력해주세요."}
+              className={
+                "rounded-[4px] bg-transparent w-full focus:outline-none placeholder:text-[14px]"
+              }
+              type={"text"}
+              {...form.register("userPw", {
+                onChange: (e) => handleInputChange(e),
+              })}
+            />
+          </div>
+        </label>
 
-        {/*<div>*/}
-        {/*    <p className={"text-black"}>비밀번호 확인</p>*/}
-        {/*    <input className={"text-black border border-[#e0e0e0] rounded-[4px]"}*/}
-        {/*           type={"text"} {...form.register("pwConfirm", {*/}
-        {/*        onChange: (e) => handleInputChange(e)*/}
-        {/*    })} />*/}
-        {/*</div>*/}
+        <label>
+          <div
+            className={"py-[10px] px-[12px] border border-white rounded-[4px]"}
+          >
+            <input
+              placeholder={"비밀번호 확인"}
+              className={
+                "rounded-[4px] bg-transparent w-full focus:outline-none placeholder:text-[14px]"
+              }
+              type={"text"}
+              {...form.register("pwConfirm", {
+                onChange: (e) => handleInputChange(e),
+              })}
+            />
+          </div>
+        </label>
 
         <button
           className={
-            "bg-transparent border-[rgba(255,255,255,0.6)] border w-full block px-[10px] py-[12px] text-blue-400 text-center font-semibold"
+            "bg-transparent border-[rgba(255,255,255,0.6)] border w-full block px-[10px] py-[12px] text-center font-semibold"
           }
           type={"submit"}
         >
