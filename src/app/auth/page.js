@@ -78,7 +78,7 @@ export default function Home() {
               className={
                 "rounded-[4px] bg-transparent w-full focus:outline-none placeholder:text-[14px]"
               }
-              type={"text"}
+              type={"password"}
               {...form.register("userPw", {
                 onChange: (e) => handleInputChange(e),
               })}
@@ -95,7 +95,7 @@ export default function Home() {
               className={
                 "rounded-[4px] bg-transparent w-full focus:outline-none placeholder:text-[14px]"
               }
-              type={"text"}
+              type={"password"}
               {...form.register("pwConfirm", {
                 onChange: (e) => handleInputChange(e),
               })}
