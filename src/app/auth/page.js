@@ -67,6 +67,11 @@ export default function Home() {
               }
               type={"text"}
               {...form.register("userId", {
+                required: true,
+                pattern: {
+                  value: /^[a-zA-Z0-9_]{8,}$/,
+                  message: "떙떙!",
+                },
                 onChange: (e) => handleInputChange(e),
               })}
             />
