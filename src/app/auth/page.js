@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { signUpFormAction } from "@/app/api/actions";
 import { useRouter } from "next/navigation";
 
-export default function Home() {
+export default function AuthPage() {
   const router = useRouter();
   const [actionState, formAction] = useFormState(signUpFormAction, {
     message: "",
